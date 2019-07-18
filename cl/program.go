@@ -43,7 +43,7 @@ func (p *Program) Release() {
 	releaseProgram(p)
 }
 
-func (p *Program) BuildProgram(devices []*Device, options string) error {
+func (p *Program) BuildProgram(devices []*Device, bufferLen uint64, options string) error {
 	var cOptions *C.char
 	if options != "" {
 		cOptions = C.CString(options)
