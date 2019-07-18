@@ -57,7 +57,7 @@ func (p *Program) BuildProgram(devices []*Device, bufferLen uint64, options stri
 		deviceListPtr = &deviceList[0]
 	}
 	if err := C.clBuildProgram(p.clProgram, numDevices, deviceListPtr, cOptions, nil, nil); err != C.CL_SUCCESS {
-		buffer := make([]byte, 4096)
+		buffer := make([]byte, bufferLen)
 		var bLen C.size_t
 		var err C.cl_int
 
